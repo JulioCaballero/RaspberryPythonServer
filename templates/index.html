@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/templates/styles.css">
+    <title>Escribir texto LCD</title>
+</head>
+
+<body background= "https://i.pinimg.com/originals/6a/7b/55/6a7b554d6b7d245735db2e36ee44af9f.jpg" style="background-repeat: no-repeat">
+    <div style="text-align:right" >
+<!-- <img src="https://i.pinimg.com/originals/6a/7b/55/6a7b554d6b7d245735db2e36ee44af9f.jpg" style="text-align:left"> -->
+
+    <h1 style="color: black;text-align: right; "> Introduzca una frase de su agrado </h1>
+    <input type="text" id="mensaje" style="border: 2px solid red; border-radius: 4px;padding: 15px 25px">
+    <button id="btnEnviar" style="background-color:green; border: none; color:white; padding: 12px 20px; display: inline-block; font-size: 16px">Enviar</button>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+    'use strict'
+    var io = io.connect('http://192.168.137.77:3000/')    
+    function enviarTexto(io){              
+            let message = $("#mensaje").val();     
+            io.emit('mensaje', message)
+          // console.log(texto);
+		}
+        document.querySelector('#btnEnviar').addEventListener('click', e => enviarTexto(io));	
+</script>
