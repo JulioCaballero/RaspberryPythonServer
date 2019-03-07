@@ -19,6 +19,5 @@ def handleMessage(msg):
     mylcd.lcd_display_string(msg, 1)
 
 if __name__ == '__main__':
-    #socketio.run(app,debug=True)
     app.run(debug=True,host='0.0.0.0',port=4500)
 

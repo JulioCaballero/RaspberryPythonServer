@@ -20,4 +20,4 @@ def handleMessage(msg):
 
 if __name__ == '__main__':
     #socketio.run(app,debug=True)
-    socketio.run(app,host='192.168.137.77',port=3000,debug=True)
+    socketio.run(app,host='0.0.0.0',port=3000,debug=True)
